@@ -1,0 +1,17 @@
+.page { padding: 1.5rem 0 3rem; }
+
+.page-header { margin-bottom: 1.25rem; }
+.page-header h1 { margin-bottom: .25rem; }
+.page-header p  { color: var(--t2); font-size: 13px; }
+
+.discover__actions { display: flex; gap: 8px; margin: 14px 0 20px; }
+
+.discover__summary { font-size: 13px; color: var(--t2); margin-bottom: 12px; }
+.discover__summary strong { color: var(--t1); }
+
+.discover__list { display: flex; flex-direction: column; gap: 8px; }
+
+.discover__empty {
+  text-align: center; padding: 3rem; color: var(--t3);
+}
+.discover__empty span { font-size: 40px; display: block; margin-bottom: 8px; }

@@ -1,0 +1,60 @@
+.filters { margin-bottom: 14px; }
+
+.filters__section { margin-bottom: 14px; }
+
+.filters__label {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: .6px;
+  color: var(--t3); text-transform: uppercase; margin-bottom: 8px;
+}
+.filters__label strong { color: var(--t1); font-size: 12px; text-transform: none; letter-spacing: 0; }
+.filters__label span   { text-transform: none; letter-spacing: 0; font-weight: 400; }
+
+.filters__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.filters__chip {
+  padding: 4px 12px; border-radius: 99px; font-size: 12px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--bg);
+  color: var(--t2); transition: all var(--trans); font-family: inherit;
+}
+.filters__chip:hover  { border-color: var(--blue); color: var(--blue); }
+.filters__chip.active { border-color: var(--blue); background: var(--blue-bg);
+                        color: var(--blue); font-weight: 600; }
+
+.filters__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.filters__slider { width: 100%; accent-color: var(--blue); margin-top: 4px; }
+
+.filters__slider-ticks {
+  display: flex; justify-content: space-between;
+  font-size: 10px; color: var(--t3); margin-top: 2px;
+}
+
+.filters__price-btns { display: flex; gap: 4px; margin-top: 4px; }
+
+.filters__price-btn {
+  flex: 1; padding: 6px 2px; border-radius: var(--r); font-size: 12px;
+  cursor: pointer; border: 1px solid var(--border); background: var(--bg);
+  color: var(--t2); transition: all var(--trans); font-family: inherit;
+}
+.filters__price-btn.active { border-color: var(--blue); background: var(--blue-bg);
+                              color: var(--blue); font-weight: 600; }
+
+.filters__select {
+  margin-top: 4px; width: 100%; background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 7px 10px; color: var(--t1); font-size: 12px;
+  font-family: inherit; outline: none;
+}
+.filters__select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+
+.filters__toggles {
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 8px;
+}
+
+.filters__toggle {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--t2); cursor: pointer;
+}

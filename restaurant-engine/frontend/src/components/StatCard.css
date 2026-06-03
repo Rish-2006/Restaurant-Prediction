@@ -1,0 +1,12 @@
+.statcard {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid;
+  border-radius: var(--r2);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow);
+}
+.statcard__icon  { font-size: 22px; margin-bottom: 4px; }
+.statcard__value { font-size: 24px; font-weight: 700; }
+.statcard__label { font-size: 13px; font-weight: 600; color: var(--t1); margin: 2px 0; }
+.statcard__sub   { font-size: 11px; color: var(--t3); }

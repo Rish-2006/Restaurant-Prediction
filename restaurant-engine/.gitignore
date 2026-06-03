@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+data/cleaned.csv
+data/feature_matrix.npy
+
+# Node
+node_modules/
+frontend/dist/
+
+# Editors
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Jupyter
+.ipynb_checkpoints/

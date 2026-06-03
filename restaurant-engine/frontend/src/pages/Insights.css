@@ -1,0 +1,30 @@
+.insights__bar {
+  display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+}
+.insights__input { flex: 1; min-width: 200px; }
+.insights__sort  {
+  background: var(--bg); border: 1px solid var(--border); border-radius: var(--r);
+  padding: 8px 10px; font-size: 12px; color: var(--t1); font-family: inherit; outline: none;
+}
+.insights__sort:focus { border-color: var(--blue); }
+
+.insights__panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.icard__title { font-size: 14px; margin-bottom: 12px; color: var(--t1); }
+.icard__row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+}
+.icard__row:last-child { border-bottom: none; }
+.icard__rank  { font-weight: 700; font-size: 13px; color: var(--t3); min-width: 18px; }
+.icard__body  { flex: 1; min-width: 0; }
+.icard__name  { font-weight: 500; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.icard__meta  { font-size: 11px; color: var(--t3); }
+.icard__stats { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
+.icard__badge { color: #fff; border-radius: 6px; padding: 1px 7px; font-size: 11px; font-weight: 600; }
+.icard__votes { font-size: 11px; color: var(--t3); }

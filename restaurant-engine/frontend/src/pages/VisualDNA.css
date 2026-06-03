@@ -1,0 +1,40 @@
+.vdna__hero {
+  background: linear-gradient(135deg, #1E1B4B, #312E81);
+  border-radius: var(--r3); padding: 1.5rem;
+  color: #fff; margin-bottom: 1.25rem;
+}
+.vdna__hero h1 { font-size: 1.4rem; margin-bottom: .4rem; }
+.vdna__hero p  { color: rgba(255,255,255,.75); font-size: 13px; }
+
+.vdna__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px; margin-bottom: 14px;
+}
+
+.vdna__card {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 14px 10px; border-radius: var(--r2); cursor: pointer;
+  border: 1.5px solid var(--border); background: var(--bg);
+  transition: all var(--trans); font-family: inherit;
+  text-align: center;
+}
+.vdna__card:hover  { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--bg)); }
+.vdna__card.active { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--bg));
+                     box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent); }
+
+.vdna__icon  { font-size: 28px; margin-bottom: 6px; }
+.vdna__label { font-size: 12px; font-weight: 600; color: var(--t1); margin-bottom: 6px; }
+.vdna__keywords { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; }
+.vdna__kw {
+  font-size: 10px; padding: 1px 6px; border-radius: 99px;
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent);
+}
+
+.vdna__controls { display: flex; gap: 8px; margin-bottom: 20px; }
+.vdna__city {
+  background: var(--bg); border: 1px solid var(--border); color: var(--t1);
+  border-radius: var(--r); padding: 8px 12px; font-size: 13px; font-family: inherit; outline: none;
+}
+.vdna__city:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
