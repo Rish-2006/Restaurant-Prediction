@@ -183,86 +183,86 @@ Run `python ml/evaluate.py` to evaluate across 5 test queries:
 ---
 
 ## 📁 Project Structure
+
+```
 restaurant-engine/
 │
-├── 📱 frontend/                        # React 18 + Vite SPA
+├── 📱 frontend/                         # React 18 + Vite SPA
 │   ├── index.html
 │   ├── vite.config.js
 │   ├── package.json
 │   ├── Dockerfile
 │   └── src/
-│       ├── main.jsx                    # ReactDOM entry point
-│       ├── App.jsx                     # BrowserRouter + Routes
+│       ├── main.jsx                     # ReactDOM entry point
+│       ├── App.jsx                      # BrowserRouter + Routes
 │       │
-│       ├── components/                 # Reusable UI components
-│       │   ├── Navbar.jsx              # Sticky top nav with active tab highlighting
+│       ├── components/                  # Reusable UI components
+│       │   ├── Navbar.jsx               # Sticky top nav with active tab highlighting
 │       │   ├── Navbar.css
-│       │   ├── RestaurantCard.jsx      # Restaurant result card with match bar
+│       │   ├── RestaurantCard.jsx       # Restaurant result card with match bar
 │       │   ├── RestaurantCard.css
-│       │   ├── FilterPanel.jsx         # All filter controls (cuisines, price, city…)
+│       │   ├── FilterPanel.jsx          # All filter controls (cuisines, price, city…)
 │       │   ├── FilterPanel.css
-│       │   ├── StatCard.jsx            # KPI metric card with accent colour
+│       │   ├── StatCard.jsx             # KPI metric card with accent colour
 │       │   ├── StatCard.css
-│       │   └── Charts.jsx              # Recharts wrappers (DonutChart, HBarChart, VBarChart)
+│       │   └── Charts.jsx               # Recharts wrappers (Donut, HBar, VBar)
 │       │
-│       ├── pages/                      # Route-level page components
-│       │   ├── Discover.jsx            # Main recommendation page
+│       ├── pages/                       # Route-level page components
+│       │   ├── Discover.jsx             # Main recommendation page
 │       │   ├── Discover.css
-│       │   ├── Analytics.jsx           # 5-chart analytics dashboard
+│       │   ├── Analytics.jsx            # 5-chart analytics dashboard
 │       │   ├── Analytics.css
-│       │   ├── VisualDNA.jsx           # Ambiance matcher page
+│       │   ├── VisualDNA.jsx            # Ambiance matcher page
 │       │   ├── VisualDNA.css
-│       │   ├── Insights.jsx            # Search + insight panels
+│       │   ├── Insights.jsx             # Search + insight panels
 │       │   └── Insights.css
 │       │
-│       ├── hooks/                      # Custom React hooks
-│       │   ├── useRecommender.js       # All recommendation state + scoring logic
-│       │   └── useSearch.js            # Search state + pre-computed insight lists
+│       ├── hooks/                       # Custom React hooks
+│       │   ├── useRecommender.js        # All recommendation state + scoring logic
+│       │   └── useSearch.js             # Search state + pre-computed insight lists
 │       │
-│       ├── utils/                      # Pure utility functions (no side effects)
-│       │   ├── scoring.js              # scoreRestaurant(), recommend(), normaliseScores()
-│       │   ├── filters.js              # searchRestaurants(), getHiddenGems(), getTopRated()
-│       │   └── formatters.js           # ratingColor(), formatVotes(), PRICE_LABELS
+│       ├── utils/                       # Pure utility functions (no side effects)
+│       │   ├── scoring.js               # scoreRestaurant(), recommend(), normaliseScores()
+│       │   ├── filters.js               # searchRestaurants(), getHiddenGems(), getTopRated()
+│       │   └── formatters.js            # ratingColor(), formatVotes(), PRICE_LABELS
 │       │
 │       ├── data/
-│       │   └── restaurants.js          # Auto-generated: 7,208 records + analytics constants
+│       │   └── restaurants.js           # Auto-generated: 7,208 records + analytics
 │       │
 │       └── styles/
-│           └── index.css               # Global reset, CSS variables, utility classes
+│           └── index.css                # Global reset, CSS variables, utility classes
 │
-├── 🐍 backend/                         # FastAPI REST API
-│   ├── main.py                         # App factory, CORS, router registration
+├── 🐍 backend/                          # FastAPI REST API
+│   ├── main.py                          # App factory, CORS, router registration
 │   ├── requirements.txt
 │   ├── Dockerfile
 │   └── app/
 │       ├── models/
-│       │   └── schemas.py              # Pydantic v2 request/response models
+│       │   └── schemas.py               # Pydantic v2 request/response models
 │       ├── routers/
-│       │   ├── restaurants.py          # GET /restaurants, POST /restaurants/search
-│       │   ├── recommendations.py      # POST /recommend
-│       │   └── analytics.py            # GET /analytics/summary, /rating-distribution…
+│       │   ├── restaurants.py           # GET /restaurants, POST /restaurants/search
+│       │   ├── recommendations.py       # POST /recommend
+│       │   └── analytics.py             # GET /analytics/summary, /rating-distribution
 │       └── services/
-│           ├── preprocessor.py         # load → clean → engineer_features → feature_matrix
-│           └── recommender.py          # compute_score(), recommend(), search()
+│           ├── preprocessor.py          # load → clean → engineer_features → matrix
+│           └── recommender.py           # compute_score(), recommend(), search()
 │
-├── 🤖 ml/                              # Standalone ML scripts
-│   ├── preprocess.py                   # Pipeline runner → outputs cleaned.csv
-│   ├── feature_engineering.py          # Feature matrix demo with multi-hot cuisines
-│   ├── recommender.py                  # CLI recommendation demo with sample queries
-│   └── evaluate.py                     # Precision@K, NDCG@K, Coverage, Serendipity
+├── 🤖 ml/                               # Standalone ML scripts
+│   ├── preprocess.py                    # Pipeline runner → outputs cleaned.csv
+│   ├── feature_engineering.py           # Feature matrix demo with multi-hot cuisines
+│   ├── recommender.py                   # CLI recommendation demo with sample queries
+│   └── evaluate.py                      # Precision@K, NDCG@K, Coverage, Serendipity
 │
 ├── 📓 notebooks/
-│   └── 01_eda.ipynb                    # Exploratory data analysis starter
+│   └── 01_eda.ipynb                     # Exploratory data analysis starter
 │
-├── 📂 data/                            # Place Dataset_.csv here
+├── 📂 data/                             # Place Dataset_.csv here
 │
-├── 🐳 docker-compose.yml               # Full stack: frontend + backend
-├── 🔁 .github/workflows/ci.yml         # GitHub Actions: Python lint + Node build
+├── 🐳 docker-compose.yml                # Full stack: frontend + backend
+├── 🔁 .github/workflows/ci.yml          # GitHub Actions: Python lint + Node build
 ├── .gitignore
 └── README.md
-
----
-
+```
 ## ⚡ Quick Start
 
 ### Option 1 — Frontend Only *(recommended for instant demo)*
