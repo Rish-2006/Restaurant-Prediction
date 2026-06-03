@@ -78,30 +78,35 @@
 ---
 
 ## 🏗️ Architecture
-┌─────────────────────────────────────────────────────────────┐
-│                        React 18 SPA                         │
-│   Discover │ Analytics │ VisualDNA │ Insights               │
-│   useRecommender · useSearch · scoring.js · filters.js      │
-└───────────────────────┬─────────────────────────────────────┘
-│ REST / JSON  (proxy via Vite)
-┌───────────────────────▼─────────────────────────────────────┐
-│                    FastAPI Backend                           │
-│   /recommend  ·  /restaurants  ·  /analytics                │
-│   Pydantic v2 schemas  ·  CORS middleware                   │
-└───────────────────────┬─────────────────────────────────────┘
-│
-┌───────────────────────▼─────────────────────────────────────┐
-│                   ML / Data Layer                            │
-│   preprocessor.py  →  feature_engineering.py                │
-│   recommender.py   →  evaluate.py                           │
-│   pandas · numpy · scikit-learn · scipy                     │
-└─────────────────────────────────────────────────────────────┘
-│
-┌───────────────────────▼─────────────────────────────────────┐
-│              Dataset  (Dataset_.csv)                        │
-│   9,551 restaurants · 21 columns · 140 cities · 15 countries│
-└─────────────────────────────────────────────────────────────┘
 
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        React 18 SPA                             │
+│          Discover │ Analytics │ VisualDNA │ Insights            │
+│     useRecommender · useSearch · scoring.js · filters.js        │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │ REST / JSON  (proxy via Vite)
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      FastAPI Backend                            │
+│         /recommend  ·  /restaurants  ·  /analytics             │
+│         Pydantic v2 schemas  ·  CORS middleware                 │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     ML / Data Layer                             │
+│     preprocessor.py  →  feature_engineering.py                 │
+│     recommender.py   →  evaluate.py                            │
+│     pandas · numpy · scikit-learn · scipy                      │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  Dataset  (Dataset_.csv)                        │
+│    9,551 restaurants · 21 columns · 140 cities · 15 countries  │
+└─────────────────────────────────────────────────────────────────┘
+```
 **Frontend** is a single-page React 18 app using Vite, React Router v6, Recharts, and CSS custom properties for theming (auto dark mode via `prefers-color-scheme`). The entire dataset is embedded as a pre-processed JS module — zero API calls required for the frontend-only demo.
 
 **Backend** is a FastAPI application that reads the raw CSV, runs the full preprocessing pipeline on startup (cached with `lru_cache`), and exposes typed REST endpoints consumed by the frontend.
